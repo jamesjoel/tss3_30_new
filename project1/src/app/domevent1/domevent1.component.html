@@ -1,0 +1,26 @@
+<div class="container mt-4" style="min-height: 700px;">
+    1<input type="text" (keydown)="demo1()" (paste)="demo2()"/>
+    <br />
+    <Br />
+    2<input type="text" />
+    <Br />
+    <Br />
+    3<input (focus)="demo3()"  (blur)="demo4()" style="background-color: {{ color }};" type="text" />
+    <Br />
+    <Br />
+    4<input type="text" />
+    <Br />
+    <Br />
+    <select (change)="demo5()">
+        <option>Select</option>
+        <option>Indore</option>
+        <option>Mumbai</option>
+        <option>Pune</option>
+        <option>Delhi</option>
+    </select>
+    <Br />
+    <Br />
+    <textarea rows="5" cols="35" (select)="demo6()">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia assumenda animi, facere dolores ipsum incidunt quam. Voluptatum, praesentium eaque blanditiis error atque culpa sequi excepturi ducimus officia! Doloribus, a.
+    </textarea>
+</div>

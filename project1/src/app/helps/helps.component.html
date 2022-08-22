@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <Br />
+            
+            <input type="text" [(ngModel)]="name"/>
+            <Br />
+            <Br />
+            <button (click)="add()">Add</button>
+            <Br />
+            <Br />
+            <ol>
+                <li *ngFor="let a of arr">{{ a }}</li>
+            </ol>
+        </div>
+    </div>
+</div>
