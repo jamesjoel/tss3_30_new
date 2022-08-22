@@ -1,1 +1,61 @@
-<p>home works!</p>
+<div class="container">
+    <form [formGroup]="x">
+    <div class="row">
+        <div class="col-md-6 mt-4 offset-md-3">
+            <!-- <pre>{{ x.controls['name'].value }}</pre>
+            <pre>{{ x.controls['email'].value }}</pre> -->
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" class="form-control" formControlName="name"/>
+                <div class="text-danger" *ngIf="x.controls['name'].errors && check">
+                    <small>Insert Your Full Name</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" class="form-control" formControlName="email"/>
+                <div class="text-danger" *ngIf="x.controls['email'].errors && check">
+                    <small *ngIf="x.controls['email'].errors['required']">Insert Your Email</small>
+                    <small *ngIf="x.controls['email'].errors['email']">Email id is Incorrect</small>
+                    
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" formControlName="password"/>
+                <div class="text-danger" *ngIf="x.controls['password'].errors && check">
+                    <small>Insert Your Password</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Re-Password</label>
+                <input type="password" class="form-control" formControlName="re_password"/>
+                <div class="text-danger" *ngIf="x.controls['re_password'].errors && check">
+                    <small *ngIf="x.controls['re_password'].errors['required']">Insert Your Re-Password</small>
+                    <small *ngIf="x.controls['re_password'].errors['passErr']">Password and Re-Password not matched</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Contact</label>
+                <input type="text" class="form-control" formControlName="contact" />
+                <div class="text-danger" *ngIf="x.controls['contact'].errors && check">
+                    <small *ngIf="x.controls['contact'].errors['required']">Insert Your Contact Number</small>
+                    <small *ngIf="x.controls['contact'].errors['numErr']">Insert Numbers only</small>
+                    <small *ngIf="x.controls['contact'].errors['sizeErr']">Contact Number should be 10 Digit</small>
+                </div>
+
+            </div>
+            <br />
+            <Br />
+            <input type="submit" (click)="submit()" value="Submit" class="btn btn-success" />
+        </div>
+        <!-- <div class="col-md-6">
+            <Br />
+            <Br />
+            <p>Full Name : {{ x.controls['name'].value }}</p>
+            <Br />
+            <p>Email : {{ x.controls['email'].value }}</p>
+        </div> -->
+    </div>
+    </form>
+</div>
