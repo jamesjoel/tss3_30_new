@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { CityService } from 'src/app/services/city.service';
 
 @Component({
   selector: 'app-city',
@@ -11,10 +11,10 @@ export class CityComponent implements OnInit {
   allCity:any;
 
   constructor(
-    private _http : HttpClient
+    private _city : CityService
   ) { 
 
-    this._http.get("http://localhost:3000/api/city").subscribe(result=>{
+    this._city.getAllCity().subscribe(result=>{
       // console.log(result);
       this.allCity = result;
     })

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { UserService } from '../../services/user.service';
+import { checkPass  } from '../../helpers/custom.validation';
+import { Router } from '@angular/router';
+import { CityService } from '../../../services/city.service';
 /*
   FormBuilder ------ Service
   FormGroup ----- Interface
@@ -19,7 +22,9 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private _fb : FormBuilder,
-    private _http : HttpClient
+    private _city : CityService,
+    private _router : Router,
+    private _user : UserService
   ) {
 
     this.signupForm = this._fb.group({
@@ -31,9 +36,12 @@ export class SignupComponent implements OnInit {
       city : ["", Validators.required],
       gender : ["", Validators.required],
       contact : ["", Validators.required]
+    },
+    {
+      validator : [checkPass()]
     });
 
-    this._http.get("http://localhost:3000/api/city").subscribe(result=>{
+    this._city.getAllCity().subscribe(result=>{
       // console.log(result);
       this.allCity = result;
     })
@@ -51,8 +59,8 @@ export class SignupComponent implements OnInit {
       this.check = true;
     }else{
 
-      this._http.post("http://localhost:3000/api/user", this.signupForm.value).subscribe(result=>{
-        console.log(result);
+      this._user.saveData(this.signupForm.value).subscribe(result=>{
+        this._router.navigate(["/login"]);
       })
     }
   }

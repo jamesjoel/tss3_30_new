@@ -9,14 +9,14 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label>Full Name</label>
-                        <input type="text" formControlName="fullname" class="form-control" />
+                        <input type="text" [ngClass]="{'is-invalid' : signupForm.controls['fullname'].errors && check}" formControlName="fullname" class="form-control" />
                         <div *ngIf="signupForm.controls['fullname'].errors && check" class="text-danger">
                             <small>Insert Your Full Name</small>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="text" formControlName="email" class="form-control" />
+                        <input type="text" [ngClass]="{'is-invalid' : signupForm.controls['email'].errors && check}" formControlName="email" class="form-control" />
                         <div *ngIf="signupForm.controls['email'].errors && check" class="text-danger">
                             <small *ngIf="signupForm.controls['email'].errors['required']">Insert Your Email Id</small>
                             <small *ngIf="signupForm.controls['email'].errors['email']">Email Id is Not Correct </small>
@@ -24,21 +24,22 @@
                     </div>
                     <div class="form-group">
                         <label>Password</label>
-                        <input type="password" formControlName="password" class="form-control" />
+                        <input type="password" [ngClass]="{'is-invalid' : signupForm.controls['password'].errors && check}" formControlName="password" class="form-control" />
                         <div *ngIf="signupForm.controls['password'].errors && check" class="text-danger">
                             <small>Insert Your Password</small>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Re-Password</label>
-                        <input type="password" formControlName="re_password" class="form-control" />
+                        <input type="password" formControlName="re_password" [ngClass]="{'is-invalid' : signupForm.controls['re_password'].errors && check}" class="form-control" />
                         <div *ngIf="signupForm.controls['re_password'].errors && check" class="text-danger">
-                            <small>Insert Your Re-Password</small>
+                            <small *ngIf="signupForm.controls['re_password'].errors['required']">Insert Your Re-Password</small>
+                            <small *ngIf="signupForm.controls['re_password'].errors['passErr']">Password and Re-Password not correct</small>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Address</label>
-                        <textarea class="form-control" formControlName="address" ></textarea>
+                        <textarea class="form-control" formControlName="address" [ngClass]="{'is-invalid' : signupForm.controls['address'].errors && check}"></textarea>
                         <div *ngIf="signupForm.controls['address'].errors && check" class="text-danger">
                             <small>Insert Your Address</small>
                         </div>
@@ -53,14 +54,14 @@
                     </div>
                     <div class="form-group">
                         <label>Contact</label>
-                        <input type="text" class="form-control" formControlName="contact"/>
+                        <input type="text" class="form-control" formControlName="contact" [ngClass]="{'is-invalid' : signupForm.controls['contact'].errors && check}"/>
                         <div *ngIf="signupForm.controls['contact'].errors && check" class="text-danger">
                             <small>Insert Your Contact</small>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>City</label>
-                        <select class="form-control" formControlName="city">
+                        <select class="form-control" formControlName="city" [ngClass]="{'is-invalid' : signupForm.controls['city'].errors && check}">
                             <option>Select</option>
                             <option *ngFor="let c of allCity">{{ c.name }}</option>
                         </select>
