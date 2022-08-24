@@ -12,4 +12,11 @@ routes.post("/", (req, res)=>{
     })
 })
 
+
+routes.get("/", (req, res)=>{
+    User.find({}, '-password -gender',(err, result)=>{
+        res.send(result);
+    })
+})
+
 module.exports = routes;
