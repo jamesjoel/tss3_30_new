@@ -15,6 +15,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { MyPageComponent } from './pages/my-page/my-page.component';
+import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { MyPageComponent } from './pages/my-page/my-page.component';
     FooterComponent,
     LoginComponent,
     SignupComponent,
-    MyPageComponent
+    MyPageComponent,
+    MyProfileComponent
   ],
   imports: [
     CommonModule,
