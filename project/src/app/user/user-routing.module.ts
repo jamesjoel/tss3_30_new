@@ -8,6 +8,8 @@ import { MyPageComponent } from './pages/my-page/my-page.component';
 import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { UserComponent } from './user.component';
+import { BackdoorGuard } from './guards/backdoor.guard';
+import { AntiBackdoorGuard } from './guards/anti-backdoor.guard';
 
 const routes: Routes = [
   {
@@ -28,11 +30,13 @@ const routes: Routes = [
       },
       {
         path : "login",
-        component : LoginComponent
+        component : LoginComponent,
+        canActivate : [AntiBackdoorGuard]
       },
       {
         path : "signup",
-        component : SignupComponent
+        component : SignupComponent,
+        canActivate : [AntiBackdoorGuard]
       },
       {
         path : "my-page",
@@ -40,7 +44,8 @@ const routes: Routes = [
       },
       {
         path : "my-profile",
-        component : MyProfileComponent
+        component : MyProfileComponent,
+        canActivate : [BackdoorGuard]
       }
     ]
   }
