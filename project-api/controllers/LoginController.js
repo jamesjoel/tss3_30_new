@@ -5,7 +5,7 @@ const sha1 = require("sha1");
 const jwt = require("jsonwebtoken");
 
 routes.post("/", (req, res)=>{
-    //console.log(req.body);
+    //console.log(req.body);n
     var e = req.body.email; // rohit@gmail.com
     var p = sha1(req.body.password);
 

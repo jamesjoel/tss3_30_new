@@ -1,3 +1,34 @@
 <div class="container" style="min-height: 700px; margin-top: 200px;">
     <h3>User Profile Page</h3>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            
+            <table *ngIf="userInfo" class="table table-dark">
+                <tr>
+                    <td>Full Name</td>
+                    <td>{{ userInfo.fullname }}</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>{{ userInfo.email }}</td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>{{ userInfo.address }}</td>
+                </tr>
+                <tr>
+                    <td>Contact</td>
+                    <td>{{ userInfo.contact }}</td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>{{ userInfo.city }}</td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td>{{ userInfo.gender }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>
