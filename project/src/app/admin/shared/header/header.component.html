@@ -5,9 +5,9 @@
     </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+      <ul *ngIf="_auth.isLoggedIn()" class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" routerLink="/admin">Dashboard</a>
+          <a class="nav-link" routerLink="/admin/dash">Dashboard</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/admin/users">Users</a>
@@ -15,6 +15,15 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/admin/city">City</a>
         </li>
-        </ul>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/admin/category">Category</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/admin/product">Product</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="_auth.logout()" style="cursor: pointer;">Logout</a>
+        </li>
+      </ul>
     </div>
   </nav>

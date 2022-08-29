@@ -4,6 +4,10 @@ import { AdminComponent } from './admin.component';
 import { CityComponent } from './pages/city/city.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { UsersComponent } from './pages/users/users.component';
+import { LoginComponent } from './pages/login/login.component';
+import { BackdoorGuard } from './guards/backdoor.guard';
+import { CategoryComponent } from './pages/category/category.component';
+import { ProductComponent } from './pages/product/product.component';
 
 const routes: Routes = [
   {
@@ -12,15 +16,32 @@ const routes: Routes = [
     children : [
       {
         path : "",
-        component : DashboardComponent
+        component : LoginComponent
+      },
+      {
+        path : "dash",
+        component : DashboardComponent,
+        canActivate : [BackdoorGuard]
       },
       {
         path :"users",
-        component : UsersComponent
+        component : UsersComponent,
+        canActivate : [BackdoorGuard]
       },
       {
         path : "city",
-        component : CityComponent
+        component : CityComponent,
+        canActivate : [BackdoorGuard]
+      },
+      {
+        path : "category",
+        component : CategoryComponent,
+        canActivate : [BackdoorGuard]
+      },
+      {
+        path : "product",
+        component : ProductComponent,
+        canActivate : [BackdoorGuard]
       }
     ]
   }

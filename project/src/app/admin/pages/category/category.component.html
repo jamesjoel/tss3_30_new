@@ -1,0 +1,24 @@
+<div class="container mt-4">
+    <form [formGroup]="cateForm">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 mt-4">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Add New Category</h3>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input id="name" [ngClass]="{'is-invalid' : cateForm.controls['name'].errors && check}" formControlName="name" type="text" class="form-control" />
+                    </div>
+                    
+                    
+                </div>
+                <div class="card-footer">
+                    <input type="submit" value="Add" (click)="submit()" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>
