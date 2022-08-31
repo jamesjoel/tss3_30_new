@@ -1,10 +1,13 @@
 <div class="container mt-4">
+    <!-- <h3 #x>hello world</h3> -->
+    <!-- <button (click)="demo(x)">OK</button> -->
     <form [formGroup]="cateForm">
     <div class="row">
+        <!-- <pre>{{ allCate | json }}</pre> -->
         <div class="col-md-6 offset-md-3 mt-4">
             <div class="card">
                 <div class="card-header">
-                    <h3>Add New Category</h3>
+                    <h3>{{ checkUpdate ? "Update Category" : "Add New Category" }}</h3>
                 </div>
                 <div class="card-body">
                     <div class="form-group">
@@ -15,10 +18,50 @@
                     
                 </div>
                 <div class="card-footer">
-                    <input type="submit" value="Add" (click)="submit()" class="btn btn-primary" />
+                    <input type="submit" value="{{ checkUpdate ? 'Update' : 'Add' }}" [ngClass]="checkUpdate ? 'btn-info' : 'btn-primary'" (click)="submit()" class="btn" />
+                    <button *ngIf="checkUpdate" (click)="cancelUpdate()" class="btn btn-danger ml-3">Cancel</button>
                 </div>
             </div>
         </div>
+
     </div>
+
     </form>
+    <div class="row">
+        <div class="col-md-8 offset-md-2 mt-3">
+            <table class="table table-dark table-bordered">
+                <tr>
+                    <th>S.No.</th>
+                    <th>Category</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+                <tr *ngFor="let c of allCate; let n = index">
+                    <td>{{ n+1 }}</td>
+                    <td>{{ c.name }}</td>
+                    <td><button (click)="askUpdate(c)" class="btn btn-info btn-sm" ><i class="fas fa-edit"></i></button></td>
+                    <td><button data-toggle="modal" data-target="#delModal" class="btn btn-danger btn-sm" (click)="askDelete(c)"><i class="fas fa-trash"></i></button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="delModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Delete</h3>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure want to delete this <b *ngIf="cate">{{ cate.name }}</b></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" (click)="confDelete(closeBtn)">Confirm</button>
+                <button class="btn btn-danger" #closeBtn data-dismiss="modal">Close</button>
+            </div>
+
+
+        </div>
+    </div>
 </div>

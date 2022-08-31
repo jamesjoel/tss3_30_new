@@ -11,7 +11,10 @@ import { Router } from '@angular/router';
 export class CategoryComponent implements OnInit {
 
   cateForm : FormGroup;
+  allCate : any;
   check = false;
+  cate : any;
+  checkUpdate = false;
   constructor(
     private _cate : CategoryService,
     private _fb : FormBuilder,
@@ -20,20 +23,74 @@ export class CategoryComponent implements OnInit {
     this.cateForm = this._fb.group({
       name : ["", Validators.required]
     })
+
+    this._cate.getAll().subscribe(result=>{
+      this.allCate = result;
+
+    })
+
    }
 
   ngOnInit(): void {
   }
 
   submit(){
+    // console.log(this.cateForm.value);
+    // return;
     if(this.cateForm.invalid){
       this.check = true;
       return;
     }
-    this._cate.save(this.cateForm.value).subscribe(result=>{
+
+    if(this.checkUpdate){
+
+      this._cate.update(this.cate._id, this.cateForm.value).subscribe(result=>{
+        let n = this.allCate.indexOf(this.cate);
+        this.allCate[n]=this.cateForm.value;
+        this.cancelUpdate();
+      })
+    }else{
+
+      this._cate.save(this.cateForm.value).subscribe(result=>{
+        this.allCate.push(result);
+        this.cateForm.controls['name'].setValue("");
+      })
+    }
+
+
+  }
+
+  askDelete(obj:any){
+    console.log(obj);
+    this.cate = obj;
+  }
+
+  confDelete(btn:any){
+    this._cate.delete(this.cate._id).subscribe(result=>{
       // console.log(result);
-      this._router.navigate(["/admin/dash"]);
+      let n = this.allCate.indexOf(this.cate);
+      this.allCate.splice(n, 1);
+      btn.click();
     })
+  }
+  askUpdate(obj:any){
+    this.checkUpdate = true;
+    this.cate = obj;
+    this.cateForm.controls['name'].setValue(this.cate.name);
+  }
+  
+  cancelUpdate(){
+    this.checkUpdate = false;
+    this.cate ={};
+    this.cateForm.controls['name'].setValue("");
+
+  }
+
+
+
+  demo(y:any){
+    // console.log("**************", y);
+    console.log(y.innerHTML)
   }
 
 }
