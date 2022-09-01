@@ -12,6 +12,7 @@ import { CityComponent } from './pages/city/city.component';
 import { LoginComponent } from './pages/login/login.component';
 import { CategoryComponent } from './pages/category/category.component';
 import { ProductComponent } from './pages/product/product.component';
+import { AddProductComponent } from './pages/add-product/add-product.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ProductComponent } from './pages/product/product.component';
     CityComponent,
     LoginComponent,
     CategoryComponent,
-    ProductComponent
+    ProductComponent,
+    AddProductComponent
   ],
   imports: [
     CommonModule,

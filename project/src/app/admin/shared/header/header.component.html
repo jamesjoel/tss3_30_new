@@ -18,8 +18,12 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/admin/category">Category</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/admin/product">Product</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Product</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" routerLink="/admin/product">List</a>
+            <a class="dropdown-item" routerLink="/admin/product/add">Add</a>
+          </div>
         </li>
         <li class="nav-item">
           <a class="nav-link" (click)="_auth.logout()" style="cursor: pointer;">Logout</a>
