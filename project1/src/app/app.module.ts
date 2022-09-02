@@ -15,6 +15,8 @@ import { FooterComponent } from './footer/footer.component';
 import { Domevent1Component } from './domevent1/domevent1.component';
 import { HelpsComponent } from './helps/helps.component';
 import { DemoPipe } from './demo.pipe';
+import { ParentToChildComponent } from './parent-to-child/parent-to-child.component';
+import { ChildBoxComponent } from './child-box/child-box.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { DemoPipe } from './demo.pipe';
     FooterComponent,
     Domevent1Component,
     HelpsComponent,
-    DemoPipe
+    DemoPipe,
+    ParentToChildComponent,
+    ChildBoxComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            
+            <h3>Parent Component</h3>
+            <h2>{{ x }}</h2>
+
+            <input type="text" [(ngModel)]="a"/>
+            <button (click)="demo()">OK</button>
+            <Br />
+            <Br />
+            <app-child-box (myEvent)="hello($event)" [x]="name" [y]="b"></app-child-box>
+            <!--     <selector [child]="parent">   -->
+        </div>
+    </div>
+</div>
