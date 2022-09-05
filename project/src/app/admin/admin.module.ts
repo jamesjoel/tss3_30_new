@@ -13,6 +13,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { CategoryComponent } from './pages/category/category.component';
 import { ProductComponent } from './pages/product/product.component';
 import { AddProductComponent } from './pages/add-product/add-product.component';
+import { DeleteComponent } from './shared/delete/delete.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { AddProductComponent } from './pages/add-product/add-product.component';
     LoginComponent,
     CategoryComponent,
     ProductComponent,
-    AddProductComponent
+    AddProductComponent,
+    DeleteComponent
   ],
   imports: [
     CommonModule,

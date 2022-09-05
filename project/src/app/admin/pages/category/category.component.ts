@@ -15,6 +15,11 @@ export class CategoryComponent implements OnInit {
   check = false;
   cate : any;
   checkUpdate = false;
+
+
+  delItem : any;
+
+
   constructor(
     private _cate : CategoryService,
     private _fb : FormBuilder,
@@ -63,6 +68,8 @@ export class CategoryComponent implements OnInit {
   askDelete(obj:any){
     console.log(obj);
     this.cate = obj;
+
+    this.delItem = { name : obj.name, label : "Category" };
   }
 
   confDelete(btn:any){

@@ -1,1 +1,27 @@
-<p>users works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 mt-4">
+            <h3>All Users</h3>
+            <table class="table table-dark">
+                <tr>
+                    <th>S.No.</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Contact</th>
+                    <th>City</th>
+                    <th>Delete</th>
+                </tr>
+                <tr *ngFor="let u of allUser; let n = index">
+                    <td>{{ n+1 }}</td>
+                    <td>{{ u.fullname }}</td>
+                    <td>{{ u.email }}</td>
+                    <td>{{ u.contact }}</td>
+                    <td>{{ u.city }}</td>
+                    <td><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delModal" (click)="askDelete(u)">Del</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<app-delete [delItem]="delItem" (delEvent)="deleteUser($event)"></app-delete>

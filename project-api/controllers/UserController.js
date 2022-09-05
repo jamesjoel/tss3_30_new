@@ -3,6 +3,13 @@ const User = require("../models/User");
 const sha1 = require("sha1");
 const jwt = require("jsonwebtoken");
 
+routes.get("/", (req, res)=>{
+    User.find({}, (err, result)=>{
+        res.send(result);
+    })
+})
+
+
 routes.post("/", (req, res)=>{
     delete req.body.re_password;
 

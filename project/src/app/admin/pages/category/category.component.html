@@ -47,21 +47,5 @@
     </div>
 </div>
 
-<div class="modal fade" id="delModal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Delete</h3>
-            </div>
-            <div class="modal-body">
-                <p>Are you sure want to delete this <b *ngIf="cate">{{ cate.name }}</b></p>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-success" (click)="confDelete(closeBtn)">Confirm</button>
-                <button class="btn btn-danger" #closeBtn data-dismiss="modal">Close</button>
-            </div>
+<app-delete [delItem]="delItem" (delEvent)="confDelete($event)"></app-delete>
 
-
-        </div>
-    </div>
-</div>

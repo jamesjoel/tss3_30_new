@@ -9,6 +9,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductComponent implements OnInit {
 
   allProduct : any;
+  delItem : any;
   product:any;
   constructor(
     private _pro : ProductService
@@ -22,6 +23,7 @@ export class ProductComponent implements OnInit {
   }
   askDelete(obj:any){
     this.product = obj;
+    this.delItem = { name : obj.name, label : "Product"};
   }
   confDelete(btn:any){
     this._pro.delete(this.product._id).subscribe(result=>{
