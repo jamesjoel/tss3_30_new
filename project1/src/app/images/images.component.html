@@ -1,0 +1,23 @@
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Image Upload in Angular</h3>
+            <div class="form-group">
+                <label>Select Image</label>
+                <input type="file" class="form-control" #img/>
+                <br />
+                <input type="submit" value="Upload" (click)="upload(img)" class="btn btn-primary" />
+            </div>
+        </div>
+        
+        
+        
+    </div>
+    <div class="row">
+
+        <div class="col-md-3 p-2" *ngFor="let i of imgArr">
+            <img src="{{ i.url }}" class="img-thumbnail" style="height: 200px;" />
+        </div>
+
+    </div>
+</div>

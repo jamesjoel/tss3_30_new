@@ -6,6 +6,7 @@ import { ContactComponent } from './contact/contact.component';
 import { Domevent1Component } from './domevent1/domevent1.component';
 import { HelpsComponent } from './helps/helps.component';
 import { HomeComponent } from './home/home.component';
+import { ImagesComponent } from './images/images.component';
 import { ParentToChildComponent } from './parent-to-child/parent-to-child.component';
 
 
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path : "parent-to-child",
     component : ParentToChildComponent
+  },
+  {
+    path : "images",
+    component : ImagesComponent
   }
 ];
 

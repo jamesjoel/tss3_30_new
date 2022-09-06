@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import { HelpsComponent } from './helps/helps.component';
 import { DemoPipe } from './demo.pipe';
 import { ParentToChildComponent } from './parent-to-child/parent-to-child.component';
 import { ChildBoxComponent } from './child-box/child-box.component';
+import { ImagesComponent } from './images/images.component';
 
 @NgModule({
   declarations: [
@@ -32,12 +34,14 @@ import { ChildBoxComponent } from './child-box/child-box.component';
     HelpsComponent,
     DemoPipe,
     ParentToChildComponent,
-    ChildBoxComponent
+    ChildBoxComponent,
+    ImagesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
