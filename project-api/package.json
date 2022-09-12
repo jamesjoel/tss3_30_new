@@ -20,6 +20,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.8.1",
     "mongoose": "^6.5.2",
-    "sha1": "^1.1.1"
+    "sha1": "^1.1.1",
+    "unique-string-generator": "^1.0.5"
   }
 }

@@ -2,7 +2,7 @@
     <form [formGroup]="proForm">
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            <h4 class="text-center">Add New Product</h4>
+            <h4 class="text-center">{{ id ? "Update" : "Add New" }} Product</h4>
             <div class="form-group">
                 <label>Product Name</label>
                 <input type="text" class="form-control" formControlName="name" [ngClass]="{'is-invalid' : proForm.controls['name'].errors && check }" />
@@ -10,6 +10,10 @@
             <div class="form-group">
                 <label>Product Price</label>
                 <input type="text" class="form-control" formControlName="price" [ngClass]="{'is-invalid' : proForm.controls['price'].errors && check }" />
+            </div>
+            <div class="form-group">
+                <label>Product Image</label>
+                <input type="file" #file class="form-control" formControlName="image" [ngClass]="{'is-invalid' : proForm.controls['image'].errors && check }" />
             </div>
             <div class="form-group">
                 <label>Discount</label>
@@ -29,7 +33,7 @@
             
             <Br />
             <Br />
-            <input type="submit" value="Add" class="btn btn-primary" (click)="submit()" />
+            <input type="submit" value="{{ id ? 'Update' : 'Add' }}" class="btn btn-primary" (click)="submit(file)" />
         </div>
     </div>
     </form>

@@ -50,6 +50,11 @@ const routes: Routes = [
         path : "product/add",
         component : AddProductComponent,
         canActivate:[BackdoorGuard]
+      },
+      {
+        path : "product/edit/:id",
+        component : AddProductComponent,
+        canActivate : [BackdoorGuard]
       }
     ]
   }
