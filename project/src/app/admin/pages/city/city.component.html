@@ -1,6 +1,13 @@
-<div class="container">
+<div class="container" (scroll)="demo()">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8 offset-md-2">
+            <!-- <h2 *ngFor="let i of [].constructor(totalPages)">hello</h2> -->
+            
+            <ul class="pagination my-4">
+                <li *ngFor="let i of [].constructor(totalPages); let n = index" [ngClass]="{'active' : currentPage-1==n}" class="page-item">
+                    <a (click)="pagination(n+1)" class="page-link" style="cursor:pointer">{{ n+1 }}</a>
+                </li>
+            </ul>
             <table class="table table-dark">
                 <tr>
                     <th>S.No.</th>
@@ -8,7 +15,7 @@
                     <th>State</th>
                 </tr>
                 <tr *ngFor="let c of allCity; let n = index">
-                    <td>{{ n+1 }}</td>
+                    <td>{{ counter+n+1 }}</td>
                     <td>{{ c.name }}</td>
                     <td>{{ c.state }}</td>
                 </tr>

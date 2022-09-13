@@ -11,6 +11,18 @@ export class CityService {
   ) { }
 
   getAllCity(){
+    //http://localhost:3000/api/city/pages/1/100
     return this._http.get<any>("http://localhost:3000/api/city");
+  }
+  getPerPageCity(a:any, b: any){
+    
+    return this._http.get<any>("http://localhost:3000/api/city/pages/"+a+"/"+b);
+  }
+
+
+
+  totalRec(){
+    return this._http.get<any>("http://localhost:3000/api/city/total_record");
+
   }
 }
