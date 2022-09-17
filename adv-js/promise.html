@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <script>
+           var check = true;
+           function fun1()
+           {
+            return new Promise((resolve, reject)=>{
+                setTimeout(()=>{
+                    if(check){
+                        resolve(200);
+                    }else{
+                        reject(1);
+                    }
+
+                }, 2000);
+            })
+           }
+
+
+
+           function fun2(num)
+           {
+            return new Promise((resolve, reject)=>{
+                setTimeout(()=>{
+                    if(num>=100)
+                    {
+                        var ans = num/2;
+                        resolve(ans);
+                    }else{
+                        reject(2);
+                    }
+                }, 2000);
+            })
+           }
+
+           function fun3(num)
+           {
+            return new Promise((resolve, reject)=>{
+                setTimeout(()=>{
+                    if(num>=100){
+                        let ans = num+50;
+                        resolve(ans);
+                    }else{
+                        reject(3);
+                    }
+                }, 1000);
+            })
+           }
+
+
+        //    fun1()
+        //     .then(x => fun2(x))
+        //     .then(y => fun3(y))
+        //     .then(z => console.log(z))
+        //     .catch(err =>{
+        //         if(err==1)
+        //         {
+
+        //         }
+        //     });
+            
+
+        async function calling_all()
+        {
+            var x = await fun1();
+            var y = await fun2(x);
+            var z = await fun3(y);
+            console.log(z);
+        }
+            
+
+        calling_all();
+            
+
+        </script>
+    </head>
+    <body>
+        <h1>Advance JS</h1>
+    </body>
+</html>
