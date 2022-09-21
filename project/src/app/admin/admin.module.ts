@@ -14,6 +14,8 @@ import { CategoryComponent } from './pages/category/category.component';
 import { ProductComponent } from './pages/product/product.component';
 import { AddProductComponent } from './pages/add-product/add-product.component';
 import { DeleteComponent } from './shared/delete/delete.component';
+import { DiscountPipe } from './pipes/discount.pipe';
+import { DemoDirective } from './directives/demo.directive';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { DeleteComponent } from './shared/delete/delete.component';
     CategoryComponent,
     ProductComponent,
     AddProductComponent,
-    DeleteComponent
+    DeleteComponent,
+    DiscountPipe,
+    DemoDirective
   ],
   imports: [
     CommonModule,

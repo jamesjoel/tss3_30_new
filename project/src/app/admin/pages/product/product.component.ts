@@ -11,12 +11,21 @@ export class ProductComponent implements OnInit {
   allProduct : any;
   delItem : any;
   product:any;
+
+  d = new Date();
+  
   constructor(
     private _pro : ProductService
   ) {
     this._pro.getAll().subscribe(result=>{
       this.allProduct = result;
     })
+
+    setInterval(()=>{
+      this.d = new Date();
+      console.log("hello");
+    }, 1000)
+
    }
 
   ngOnInit(): void {

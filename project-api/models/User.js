@@ -9,7 +9,8 @@ const User = mongoose.Schema({
     gender : String,
     city : String,
     address : String,
-    contact : String
+    contact : String,
+    createAt : Date
 })
 
 module.exports = mongoose.model("user", User);

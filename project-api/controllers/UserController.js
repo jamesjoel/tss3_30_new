@@ -12,6 +12,7 @@ routes.get("/", (req, res)=>{
 
 routes.post("/", (req, res)=>{
     delete req.body.re_password;
+    req.body.createAt = new Date();
 
     req.body.password = sha1(req.body.password);
 
