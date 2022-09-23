@@ -1,27 +1,18 @@
 <div class="container-fluid" style="min-height: 800px;">
-    <!-- <div (mousemove)="demo()" style="margin-top : {{ t }}px; margin-left : {{ l }}px; height: 100px; width:100px; background-color : #124566; border-radius: 200px;"></div> -->
-    <h1 *ngIf="x==12; else box">Indore</h1>
-    
-    <ng-template #box>
-        <h1>Mumbai</h1>
-
-    </ng-template>
-
-
-    <h3 *ngFor="let a of arr">{{ a }}</h3>
+   
     
     <table class="table table-dark">
         <tr>
             <th>S.No.</th>
             <th>Name</th>
             <th>Age</th>
-            <th>City</th>
+            
         </tr>
-        <tr *ngFor="let a of user; let n = index">
+        <tr *ngFor="let a of stu; let n = index">
             <td>{{ n+1 }}</td>
             <td>{{ a.name }}</td>
             <td>{{ a.age }}</td>
-            <td>{{ a.city }}</td>
+            
         </tr>
     </table>
 </div>

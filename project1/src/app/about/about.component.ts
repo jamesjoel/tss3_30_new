@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,43 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent {
-  x= 10;
-  l = 0;
-  t = 0;
-
-  arr = ["red", "green", "blue", "yellow", "pink"];
-
-  user = [
-    {
-      name : "rohit",
-      age : 25,
-      city : "mumbai"
-    },
-    {
-      name : "jaya",
-      age : 23,
-      city : "indore"
-    },
-    {
-      name : "amar",
-      age : 27,
-      city : "pune"
-    }
-  ]
-
-
-
-  demo(){
-    let a = Math.random() * 800;
-    let b = Math.floor(a);
-    
-    let x = Math.random() * 600;
-    let y = Math.floor(x);
-
-    this.l = b;
-    this.t = y;
-    
+  stu:any=[];
+  constructor(
+    private _http : HttpClient
+  ){
+    this._http.get<any>("http://localhost:3000/student").subscribe(result=>{
+      this.stu = result;
+    })
   }
-  
-  
 }

@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -6,23 +8,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  stuForm : FormGroup;
 
-  name:string = "rohit";
-  a:string=""; // property
-
-  demo1(){
-    let a = "nilesh";
-    this.a = a;
-    this.name = "amar";
-    console.log("--------------");
+  constructor(
+    private _fb : FormBuilder,
+    private _http : HttpClient
+  ){
+    this.stuForm = this._fb.group({
+      name : "",
+      age : null
+    })
   }
 
-  demo2(){
-    console.log("hello");
+  submit(){
+    this._http.post<any>("http://localhost:3000/student", this.stuForm.value).subscribe(result=>{
+      console.log(result);
+    })
   }
-  demo3(){
-    console.log("***********");
-    return false;
-  }
+
+  
 
 }
