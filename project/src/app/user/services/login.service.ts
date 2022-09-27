@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class LoginService {
   ) { }
 
   do_login(obj:any){
-    return this._http.post<any>("http://localhost:3000/api/login", obj);
+    return this._http.post<any>(environment.apiUrl+"login", obj);
   }
   
   isLoggedIn(){

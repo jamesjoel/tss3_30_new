@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
+
 
   constructor(
     private _http : HttpClient,
@@ -13,7 +16,7 @@ export class AuthService {
   ) { }
 
   do_login(obj:any){
-    return this._http.post<any>("http://localhost:3000/api/admin/login", obj);
+    return this._http.post<any>(environment.apiUrl+"admin/login", obj);
   }
   isLoggedIn(){
     if(localStorage.getItem("admintoken"))
